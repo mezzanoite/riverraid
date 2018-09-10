@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class Boom : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        Destroy(gameObject, 0.3f);
 	}
 	
 	// Update is called once per frame
