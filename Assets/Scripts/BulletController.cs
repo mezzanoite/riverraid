@@ -6,6 +6,10 @@ public class BulletController : MonoBehaviour {
 
     public GameObject explosion;
 
+    private void Start()
+    {
+        Destroy(gameObject, 5.0f);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

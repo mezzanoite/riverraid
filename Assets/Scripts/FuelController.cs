@@ -5,18 +5,24 @@ using UnityEngine;
 public class FuelController : MonoBehaviour {
 
 
-    public int charges = 5;
+    public int fuelLeft = 5;
     public bool playerTrigger = false;
-    public bool didLowCharge = false;
+    public bool didLowFuel = false;
+    public GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
 
     private void FixedUpdate()
     {
-        if (playerTrigger && !didLowCharge) {
-            StartCoroutine(chargePlayerFuel());
+        if (playerTrigger && !didLowFuel) {
+            StartCoroutine(provideFuelToPlayer());
             print("Charging...");
         }
 
-        if (charges == 0) {
+        if (fuelLeft == 0) {
             Destroy(gameObject);
         }
     }
@@ -39,10 +45,13 @@ public class FuelController : MonoBehaviour {
         }
     }
 
-    private IEnumerator chargePlayerFuel() {
-        didLowCharge = true;
+    private IEnumerator provideFuelToPlayer() {
+        didLowFuel = true;
         yield return new WaitForSeconds(1.0f);
-        charges -= 1;
-        didLowCharge = false;
+        fuelLeft -= 1;
+        if (player != null) {
+            player.GetComponent<PlayerController>().fuel += 3;
+        }
+        didLowFuel = false;
     }
 }
