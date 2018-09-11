@@ -5,10 +5,12 @@ using UnityEngine;
 public class FuelController : MonoBehaviour {
 
 
-    public int fuelLeft = 5;
-    public bool playerTrigger = false;
-    public bool didLowFuel = false;
+    public GameObject fuelIndicator;
     public GameObject player;
+    public int fuelTankCharges = 18;
+    public bool didLowFuel = false;
+    public bool didChargeFuel = false;
+    public bool playerOnGasStation = false;
 
     private void Start()
     {
@@ -17,41 +19,33 @@ public class FuelController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (playerTrigger && !didLowFuel) {
-            StartCoroutine(provideFuelToPlayer());
-            print("Charging...");
+        if (!didLowFuel) {
+            StartCoroutine(lowPlayerFuel());
         }
 
-        if (fuelLeft == 0) {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
+        if (playerOnGasStation && !didChargeFuel)
         {
-            print("Enter Fuel!!");
-            playerTrigger = true;
+            StartCoroutine(chargePlayerFuel());
+        }
+
+        if (fuelTankCharges == 0) {
+            player.GetComponent<PlayerController>().killPlayer();
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            print("Exit Fuel!!");
-            playerTrigger = false;
-        }
-    }
-
-    private IEnumerator provideFuelToPlayer() {
+    private IEnumerator lowPlayerFuel() {
         didLowFuel = true;
         yield return new WaitForSeconds(1.0f);
-        fuelLeft -= 1;
-        if (player != null) {
-            player.GetComponent<PlayerController>().fuel += 3;
-        }
+        fuelTankCharges -= 1;
         didLowFuel = false;
+    }
+
+    public IEnumerator chargePlayerFuel() {
+        didChargeFuel = true;
+        yield return new WaitForSeconds(1.0f);
+        if (fuelTankCharges <= 15) {
+            fuelTankCharges += 3;
+        }
+        didChargeFuel = false;
     }
 }

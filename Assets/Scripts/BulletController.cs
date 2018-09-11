@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour {
 
-    public GameObject explosion;
+    //public GameObject explosion;
+
+    //public enum BulletType {
+    //    enemy,
+    //    player
+    //}
+
+    //public BulletType bulletType;
+
 
     private void Start()
     {
         Destroy(gameObject, 5.0f);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            DestroyBulletAndObject(collision.gameObject);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Fuel")
+        if (collision.tag == "Enemy")
         {
-            DestroyBulletAndObject(collision.gameObject);
+            collision.gameObject.GetComponent<EnemyController>().Die();
+            Destroy(gameObject);
         }
-    }
-
-    public void DestroyBulletAndObject(GameObject obj) {
-        Instantiate(explosion, obj.transform.position, obj.transform.rotation);
-        Destroy(obj);
-        Destroy(gameObject);
+        if (collision.tag == "GasStation")
+        {
+            collision.gameObject.GetComponent<GasStationController>().Explode(); 
+            Destroy(gameObject);
+        }
     }
 }

@@ -49,19 +49,17 @@ public class PlayerController : MonoBehaviour {
         didLowFuel = false;
     }
 
-    private void explode(GameObject obj) {
-        Instantiate(explosion, obj.transform.position, obj.transform.rotation);
-        Destroy(obj);
+    public void killPlayer() {
+        Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
+        Destroy(gameObject);
     }
 
-    private void killPlayer() {
-        explode(gameObject);
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy") {
-            explode(collision.gameObject);
+        if (collision.tag == "Enemy")
+        {
+            collision.GetComponent<EnemyController>().Die();
             killPlayer();
         }
     }
