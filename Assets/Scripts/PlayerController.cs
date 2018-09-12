@@ -12,6 +12,13 @@ public class PlayerController : MonoBehaviour {
 
     public bool didLowFuel = false;
 
+    // Components
+    private Animator animator;
+
+    void Start() 
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -24,6 +31,19 @@ public class PlayerController : MonoBehaviour {
         {
             GameObject p = Instantiate(bullet, weapon.position, weapon.rotation);
             p.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 5.0f);
+        }
+
+        if (x > 0.0f) 
+        {
+            animator.SetBool("pRight", true);
+            animator.SetBool("pLeft", false);
+        } else if (x < 0.0f) 
+        {
+            animator.SetBool("pRight", false);
+            animator.SetBool("pLeft", true);
+        } else {
+            animator.SetBool("pRight", false);
+            animator.SetBool("pLeft", false);
         }
 
     }
@@ -51,7 +71,7 @@ public class PlayerController : MonoBehaviour {
 
     public void killPlayer() {
         Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
 

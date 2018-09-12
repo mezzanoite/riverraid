@@ -195,7 +195,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4212414321095662, guid: e34af6fe95ed34103ab2bdfea8d54ede, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.6150997
+      value: 3.11
       objectReference: {fileID: 0}
     - target: {fileID: 4212414321095662, guid: e34af6fe95ed34103ab2bdfea8d54ede, type: 2}
       propertyPath: m_LocalPosition.z
@@ -207,7 +207,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4212414321095662, guid: e34af6fe95ed34103ab2bdfea8d54ede, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4212414321095662, guid: e34af6fe95ed34103ab2bdfea8d54ede, type: 2}
       propertyPath: m_LocalRotation.z
@@ -215,11 +215,30 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4212414321095662, guid: e34af6fe95ed34103ab2bdfea8d54ede, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4212414321095662, guid: e34af6fe95ed34103ab2bdfea8d54ede, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114526095501302944, guid: e34af6fe95ed34103ab2bdfea8d54ede,
+        type: 2}
+      propertyPath: distanceStartMoving
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 212282088355746502, guid: e34af6fe95ed34103ab2bdfea8d54ede,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212414321095662, guid: e34af6fe95ed34103ab2bdfea8d54ede, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 114526095501302944, guid: e34af6fe95ed34103ab2bdfea8d54ede,
+        type: 2}
+      propertyPath: velocity
+      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e34af6fe95ed34103ab2bdfea8d54ede, type: 2}
@@ -233,11 +252,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4087702615214046, guid: 2cea8030f3d1d43c9bcd11beef515c4a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.12421884
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4087702615214046, guid: 2cea8030f3d1d43c9bcd11beef515c4a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.1785893
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4087702615214046, guid: 2cea8030f3d1d43c9bcd11beef515c4a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -557,6 +576,7 @@ MonoBehaviour:
   fuelTankCharges: 18
   didLowFuel: 0
   didChargeFuel: 0
+  playerOnGasStation: 0
 --- !u!4 &1156787043
 Transform:
   m_ObjectHideFlags: 0
@@ -840,9 +860,42 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114461363114754260, guid: f97eb0a46052545358d0f6fef148c861,
+        type: 2}
+      propertyPath: distanceStartMoving
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114461363114754260, guid: f97eb0a46052545358d0f6fef148c861,
+        type: 2}
+      propertyPath: velocity
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f97eb0a46052545358d0f6fef148c861, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1539906832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1670785595362106, guid: 2cea8030f3d1d43c9bcd11beef515c4a,
+    type: 2}
+  m_PrefabInternal: {fileID: 465232266}
+--- !u!95 &1539906833
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1539906832}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 08ab4db81bfcd4e45a62011975aaa30b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1939875736
 GameObject:
   m_ObjectHideFlags: 0
