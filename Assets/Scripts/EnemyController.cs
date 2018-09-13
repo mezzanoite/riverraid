@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour {
         target = GameObject.FindGameObjectWithTag("Player"); // O alvo na visão do inimigo é o próprio "Player"
         moving = false;
         checkDistance = true;
+        Destroy(gameObject, 15);
     }
 
     void Update() 

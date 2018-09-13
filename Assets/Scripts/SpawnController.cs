@@ -7,6 +7,9 @@ public class SpawnController : MonoBehaviour {
     public GameObject[] enemiesToSpawn;
     public GameObject gasStation;
 
+    public bool didInstantiateScenario = false;
+    public bool didInstantiateEnemy = false;
+
     // Use this for initialization
     void Start () {
 		
@@ -16,4 +19,36 @@ public class SpawnController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void FixedUpdate()
+    {
+        if (!didInstantiateScenario) {
+            StartCoroutine(instantiateScenario());
+        }
+
+        if (!didInstantiateEnemy)
+        {
+            StartCoroutine(instantiateEnemy());
+        }
+    }
+
+    private IEnumerator instantiateScenario()
+    {
+        didInstantiateScenario = true;
+        yield return new WaitForSeconds(5.0f);
+        int randomScenario = Random.Range(0, scenariosToSpawn.Length - 1);
+        GameObject p = Instantiate(scenariosToSpawn[randomScenario], this.transform.position, this.transform.rotation);
+        didInstantiateScenario = false;
+    }
+
+    private IEnumerator instantiateEnemy()
+    {
+        didInstantiateEnemy = true;
+        yield return new WaitForSeconds(2.0f);
+        int randomEnemy = Random.Range(0, enemiesToSpawn.Length - 1);
+        Vector2 randomPosition = new Vector2(Random.Range(-3, 3), this.transform.position.y);
+        GameObject p = Instantiate(enemiesToSpawn[randomEnemy], randomPosition, this.transform.rotation);
+        didInstantiateEnemy = false;
+    }
+
 }

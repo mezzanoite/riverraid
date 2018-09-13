@@ -25,7 +25,7 @@ public class FuelController : MonoBehaviour {
         if  (MainController.isPlaying) {
 
             isFull = (fuelTankCharges > 15);
-            isEmpty = (fuelTankCharges <= 0);
+            isEmpty = (fuelTankCharges == 0);
 
             if (!didLowFuel)
             {
@@ -48,7 +48,7 @@ public class FuelController : MonoBehaviour {
     }
 
     private void updateIndicatorX() {
-        fuelIndicator.transform.Translate(fuelVelocity * Time.deltaTime, 0.0f, 0.0f);
+        fuelIndicator.transform.Translate(fuelVelocity/10, 0.0f, 0.0f);
     }
 
     private IEnumerator lowPlayerFuel() {

@@ -7,12 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float velocity;
     public Transform weapon;
     public GameObject bullet;
-    //public int fuel = 20;
     public GameObject explosion;
-
-    //public bool didLowFuel = false;
-
-    // Components
     private Animator animator;
 
     void Start() 
@@ -59,30 +54,10 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    private void FixedUpdate()
-    {
-        //if (!didLowFuel)
-        //{
-        //    StartCoroutine(lowFuel());
-        //}
-
-        //if (fuel == 0)
-        //{
-        //    killPlayer();
-        //}
-    }
-
-    //private IEnumerator lowFuel()
-    //{
-    //    didLowFuel = true;
-    //    yield return new WaitForSeconds(1.0f);
-    //    fuel -= 1;
-    //    didLowFuel = false;
-    //}
-
     public void killPlayer() {
         Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
         Destroy(gameObject);
+        MainController.isPlaying = false;
     }
 
 
@@ -91,6 +66,14 @@ public class PlayerController : MonoBehaviour {
         if (collision.tag == "Enemy")
         {
             collision.GetComponent<EnemyController>().Die();
+            killPlayer();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Scenario")
+        {
             killPlayer();
         }
     }
