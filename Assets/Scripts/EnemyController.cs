@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour {
     public float distanceStartMoving;
     public float velocity;
 
-    private GameObject alvo;
+    private GameObject target;
     private bool moving;
     private Vector3 direction;
     private bool checkDistance;
@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour {
     void Start() 
     {
         spriteRenderer = transform.GetComponent<SpriteRenderer>();
-        alvo = GameObject.FindGameObjectWithTag("Player"); // O alvo na visão do inimigo é o próprio "Player"
+        target = GameObject.FindGameObjectWithTag("Player"); // O alvo na visão do inimigo é o próprio "Player"
         moving = false;
         checkDistance = true;
     }
@@ -28,9 +28,9 @@ public class EnemyController : MonoBehaviour {
     void Update() 
     {
 
-        if (alvo != null && checkDistance) 
+        if (target != null && checkDistance) 
         {
-            Vector2 currentDistance = transform.position - alvo.transform.position;
+            Vector2 currentDistance = transform.position - target.transform.position;
             float currentDistanceX = Mathf.Abs(currentDistance.x);
             float currentDistanceY = Mathf.Abs(currentDistance.y);
             // Se a distância vertical for menor que o "distanceStartMoving", inimigo tem chance de se movimentar
@@ -50,11 +50,6 @@ public class EnemyController : MonoBehaviour {
     public void Die() {
         Instantiate(explosion, transform.position, transform.rotation);
         Destroy(gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        //ScoreController.totalPoints += pointsPerKill;
     }
 
     

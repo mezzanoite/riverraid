@@ -10,6 +10,7 @@ TagManager:
   - FullTank
   - EmptyTank
   - GasStation
+  - Scenario
   layers:
   - Default
   - TransparentFX
@@ -19,9 +20,9 @@ TagManager:
   - UI
   - 
   - 
-  - FrontLayer
-  - MiddleLayer
-  - BackLayer
+  - Enemies
+  - Scenario
+  - 
   - 
   - 
   - 
@@ -46,4 +47,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Scenario
+    uniqueID: 277655595
+    locked: 0
+  - name: Enemies
+    uniqueID: 386510803
+    locked: 0
+  - name: Player
+    uniqueID: 2250547693
+    locked: 0
+  - name: Canvas
+    uniqueID: 4029689415
     locked: 0

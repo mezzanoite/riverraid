@@ -99,6 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsPerKill: 3
   explosion: {fileID: 1125666450090616, guid: 187f93c8f14024b19985881c10c8cda9, type: 2}
+  distanceStartMoving: 0.5
+  velocity: 0
 --- !u!212 &212657829352657494
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -131,8 +133,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 386510803
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 14080eb88e1e243a2ba4b49a6c4badfe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

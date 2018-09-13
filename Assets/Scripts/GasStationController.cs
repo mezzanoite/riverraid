@@ -12,12 +12,10 @@ public class GasStationController : MonoBehaviour
     public GameObject player;
     public int pointsPerKill = 5;
     public GameObject explosion;
-    public GameObject fuelController;
 
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
-        fuelController = GameObject.FindWithTag("Fuel");
     }
 
     private void FixedUpdate()
@@ -25,12 +23,12 @@ public class GasStationController : MonoBehaviour
         if (playerTrigger && !didLowFuel)
         {
             StartCoroutine(provideFuelToPlayer());
-            fuelController.GetComponent<FuelController>().playerOnGasStation = true;
+            FuelController.playerOnGasStation = true;
             print("Charging...");
         }
 
         if (!playerTrigger) {
-            fuelController.GetComponent<FuelController>().playerOnGasStation = false;
+            FuelController.playerOnGasStation = false;
         }
 
         if (fuelChargesLeft == 0)
@@ -73,6 +71,6 @@ public class GasStationController : MonoBehaviour
 
     private void OnDestroy()
     {
-        //ScoreController.totalPoints += (pointsPerKill * fuelChargesLeft);
+        FuelController.playerOnGasStation = false;
     }
 }

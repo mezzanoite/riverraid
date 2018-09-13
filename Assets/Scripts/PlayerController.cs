@@ -7,10 +7,10 @@ public class PlayerController : MonoBehaviour {
     public float velocity;
     public Transform weapon;
     public GameObject bullet;
-    public int fuel = 20;
+    //public int fuel = 20;
     public GameObject explosion;
 
-    public bool didLowFuel = false;
+    //public bool didLowFuel = false;
 
     // Components
     private Animator animator;
@@ -25,7 +25,18 @@ public class PlayerController : MonoBehaviour {
 
         float x = Input.GetAxis("Horizontal") * velocity * Time.deltaTime;
         float y = Input.GetAxis("Vertical") * velocity * Time.deltaTime;
-        transform.Translate(x, y, 0.0f);
+        if ((transform.position.y < -3.5 && y < 0) || (transform.position.y > 4.4 && y > 0))
+        {
+            transform.Translate(x, 0.0f, 0.0f);
+        }
+        else if ((transform.position.x < -2.9 && x < 0) || (transform.position.x > 2.9 && x > 0))
+        {
+            transform.Translate(0.0f, y, 0.0f);
+        }
+        else {
+            transform.Translate(x, y, 0.0f);
+        }
+
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -50,28 +61,28 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (!didLowFuel)
-        {
-            StartCoroutine(lowFuel());
-        }
+        //if (!didLowFuel)
+        //{
+        //    StartCoroutine(lowFuel());
+        //}
 
-        if (fuel == 0)
-        {
-            killPlayer();
-        }
+        //if (fuel == 0)
+        //{
+        //    killPlayer();
+        //}
     }
 
-    private IEnumerator lowFuel()
-    {
-        didLowFuel = true;
-        yield return new WaitForSeconds(1.0f);
-        fuel -= 1;
-        didLowFuel = false;
-    }
+    //private IEnumerator lowFuel()
+    //{
+    //    didLowFuel = true;
+    //    yield return new WaitForSeconds(1.0f);
+    //    fuel -= 1;
+    //    didLowFuel = false;
+    //}
 
     public void killPlayer() {
         Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 
 

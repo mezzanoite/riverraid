@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class FuelController : MonoBehaviour {
 
-
     public GameObject fuelIndicator;
+    public bool isFull;
+    public bool isEmpty;
     public GameObject player;
-    public int fuelTankCharges = 18;
     public bool didLowFuel = false;
     public bool didChargeFuel = false;
-    public bool playerOnGasStation = false;
+    public static bool playerOnGasStation = false;
+    public float fuelVelocity = -1.0f;
+
+    public int fuelTankCharges = 18;
 
     private void Start()
     {
@@ -19,33 +22,50 @@ public class FuelController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (!didLowFuel) {
-            StartCoroutine(lowPlayerFuel());
-        }
+        if  (MainController.isPlaying) {
 
-        if (playerOnGasStation && !didChargeFuel)
-        {
-            StartCoroutine(chargePlayerFuel());
-        }
+            isFull = (fuelTankCharges > 15);
+            isEmpty = (fuelTankCharges <= 0);
 
-        if (fuelTankCharges == 0) {
-            player.GetComponent<PlayerController>().killPlayer();
+            if (!didLowFuel)
+            {
+                StartCoroutine(lowPlayerFuel());
+            }
+
+            if (playerOnGasStation && !didChargeFuel && !isFull)
+            {
+                StartCoroutine(chargePlayerFuel());
+            }
+
+            if (isEmpty)
+            {
+                if (player != null)
+                {
+                    player.GetComponent<PlayerController>().killPlayer();
+                }
+            }
         }
+    }
+
+    private void updateIndicatorX() {
+        fuelIndicator.transform.Translate(fuelVelocity * Time.deltaTime, 0.0f, 0.0f);
     }
 
     private IEnumerator lowPlayerFuel() {
         didLowFuel = true;
         yield return new WaitForSeconds(1.0f);
-        fuelTankCharges -= 1;
         didLowFuel = false;
+        fuelVelocity = -1.0f;
+        fuelTankCharges -= 1;
+        updateIndicatorX();
     }
 
     public IEnumerator chargePlayerFuel() {
         didChargeFuel = true;
         yield return new WaitForSeconds(1.0f);
-        if (fuelTankCharges <= 15) {
-            fuelTankCharges += 3;
-        }
+        fuelVelocity = 3.0f;
+        fuelTankCharges += 3;
+        updateIndicatorX();
         didChargeFuel = false;
     }
 }
