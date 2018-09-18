@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212630547081208686}
   - component: {fileID: 61411710775883670}
   - component: {fileID: 114193178422820890}
+  - component: {fileID: 114639102509039992}
   m_Layer: 0
   m_Name: Airplane
   m_TagString: Enemy
@@ -82,6 +83,18 @@ MonoBehaviour:
   explosion: {fileID: 1125666450090616, guid: 187f93c8f14024b19985881c10c8cda9, type: 2}
   distanceStartMoving: 0
   velocity: 0
+--- !u!114 &114639102509039992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1584263460507632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199c7046520e846df842a1988b6eaa4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: -1.3
 --- !u!212 &212630547081208686
 SpriteRenderer:
   m_ObjectHideFlags: 1

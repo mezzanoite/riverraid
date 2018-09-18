@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 95341093913749254}
   - component: {fileID: 61779942886899680}
   - component: {fileID: 114461363114754260}
+  - component: {fileID: 114669928662407672}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Enemy
@@ -101,6 +102,18 @@ MonoBehaviour:
   explosion: {fileID: 1125666450090616, guid: 187f93c8f14024b19985881c10c8cda9, type: 2}
   distanceStartMoving: 0.5
   velocity: 0
+--- !u!114 &114669928662407672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331419966298438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199c7046520e846df842a1988b6eaa4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: -1.3
 --- !u!212 &212657829352657494
 SpriteRenderer:
   m_ObjectHideFlags: 1

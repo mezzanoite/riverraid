@@ -8,7 +8,7 @@ public class ScenarioController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Destroy(gameObject, 10);
+        Destroy(gameObject, 15);
 	}
 	
 	// Update is called once per frame

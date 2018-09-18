@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212282088355746502}
   - component: {fileID: 114526095501302944}
   - component: {fileID: 61713206740971448}
+  - component: {fileID: 114975517801949714}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Enemy
@@ -82,6 +83,18 @@ MonoBehaviour:
   explosion: {fileID: 1689543789708728, guid: 3076cae414cb4478ebf903ccc74b038a, type: 2}
   distanceStartMoving: 0
   velocity: 0
+--- !u!114 &114975517801949714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1279869804611266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199c7046520e846df842a1988b6eaa4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: -1.3
 --- !u!212 &212282088355746502
 SpriteRenderer:
   m_ObjectHideFlags: 1

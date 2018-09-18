@@ -36,16 +36,18 @@ public class SpawnController : MonoBehaviour {
     {
         didInstantiateScenario = true;
         yield return new WaitForSeconds(5.0f);
-        int randomScenario = Random.Range(0, scenariosToSpawn.Length - 1);
+        int randomScenario = Random.Range(0, scenariosToSpawn.Length);
         GameObject p = Instantiate(scenariosToSpawn[randomScenario], this.transform.position, this.transform.rotation);
         didInstantiateScenario = false;
     }
+
+    public LayerMask collisionTest;
 
     private IEnumerator instantiateEnemy()
     {
         didInstantiateEnemy = true;
         yield return new WaitForSeconds(2.0f);
-        int randomEnemy = Random.Range(0, enemiesToSpawn.Length - 1);
+        int randomEnemy = Random.Range(0, enemiesToSpawn.Length);
         Vector2 randomPosition = new Vector2(Random.Range(-3, 3), this.transform.position.y);
         GameObject p = Instantiate(enemiesToSpawn[randomEnemy], randomPosition, this.transform.rotation);
         didInstantiateEnemy = false;
