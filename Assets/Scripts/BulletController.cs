@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour {
 
+    public float limiteY;
+
     //public GameObject explosion;
 
     //public enum BulletType {
@@ -16,7 +18,16 @@ public class BulletController : MonoBehaviour {
 
     private void Start()
     {
-        Destroy(gameObject, 5.0f);
+        //Destroy(gameObject, 5.0f);
+    }
+
+    private void Update()
+    {
+        if(transform.position.y > limiteY)
+        {
+            // Destruo o tiro assim que ele sai da tela, assim não atinge inimigos já spawnados que ainda não estão visíveis
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,6 +40,10 @@ public class BulletController : MonoBehaviour {
         if (collision.tag == "GasStation")
         {
             collision.gameObject.GetComponent<GasStationController>().Explode(); 
+            Destroy(gameObject);
+        }
+        if (collision.tag == "Scenario")
+        {
             Destroy(gameObject);
         }
     }

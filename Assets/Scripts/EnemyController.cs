@@ -9,6 +9,9 @@ public class EnemyController : MonoBehaviour {
     public float distanceStartMoving;
     public float velocity;
 
+    [HideInInspector] // Para não mostrar no editor
+    public bool neverMove;
+
     private GameObject target;
     private bool moving;
     private Vector3 direction;
@@ -29,7 +32,7 @@ public class EnemyController : MonoBehaviour {
     void Update() 
     {
 
-        if (target != null && checkDistance) 
+        if (target != null && checkDistance && !neverMove) 
         {
             Vector2 currentDistance = transform.position - target.transform.position;
             float currentDistanceX = Mathf.Abs(currentDistance.x);
@@ -57,7 +60,6 @@ public class EnemyController : MonoBehaviour {
     private void setDirectionsIfShouldMove() {
         // 50% de chance de começar a se mover
         bool shouldMove = (Random.value > 0.5f);
-        print(shouldMove);
         if (shouldMove) {
             moving = true;
             if (!spriteRenderer.flipX) {
@@ -72,7 +74,6 @@ public class EnemyController : MonoBehaviour {
 
     private void move() 
     {
-        // TODO ficar indo de um lado para o outro. Depende do cenário e de onde possivelmente colidiria.
         transform.Translate(direction * velocity * Time.deltaTime);
     }
 

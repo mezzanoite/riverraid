@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212467454455682592}
   - component: {fileID: 61810965222640870}
   - component: {fileID: 114923251079331624}
+  - component: {fileID: 114688892131512282}
   m_Layer: 0
   m_Name: Fuel
   m_TagString: GasStation
@@ -67,6 +68,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.14, y: 0.24}
   m_EdgeRadius: 0
+--- !u!114 &114688892131512282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1005832617598302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199c7046520e846df842a1988b6eaa4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: -1.3
 --- !u!114 &114923251079331624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,7 +97,6 @@ MonoBehaviour:
   player: {fileID: 0}
   pointsPerKill: 5
   explosion: {fileID: 1689543789708728, guid: 3076cae414cb4478ebf903ccc74b038a, type: 2}
-  fuelController: {fileID: 0}
 --- !u!212 &212467454455682592
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -119,7 +131,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 386510803
   m_SortingLayer: 2
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 04b1f26ebc7a44f0da9d63cbf274db8f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
