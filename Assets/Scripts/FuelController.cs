@@ -12,7 +12,7 @@ public class FuelController : MonoBehaviour {
     public bool didChargeFuel = false;
     public static bool playerOnGasStation = false;
     public float fuelVelocity = -1.0f;
-
+    public bool localPlayerOnGasStation = false;
     public int fuelTankCharges = 18;
 
     private void Start()
@@ -22,7 +22,8 @@ public class FuelController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if  (MainController.isPlaying) {
+        print(playerOnGasStation);
+        //if  (MainController.isPlaying) {
 
             isFull = (fuelTankCharges > 15);
             isEmpty = (fuelTankCharges == 0);
@@ -44,7 +45,7 @@ public class FuelController : MonoBehaviour {
                     player.GetComponent<PlayerController>().killPlayer();
                 }
             }
-        }
+       //}
     }
 
     private void updateIndicatorX() {

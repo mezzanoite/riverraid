@@ -152,6 +152,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114688892131512282, guid: f020af1c8e274406f81756a7d7998660,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f020af1c8e274406f81756a7d7998660, type: 2}
   m_IsPrefabAsset: 0
@@ -197,6 +202,11 @@ Prefab:
     - target: {fileID: 1005832617598302, guid: f020af1c8e274406f81756a7d7998660, type: 2}
       propertyPath: m_Name
       value: Fuel (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688892131512282, guid: f020af1c8e274406f81756a7d7998660,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f020af1c8e274406f81756a7d7998660, type: 2}
@@ -312,6 +322,11 @@ Prefab:
     - target: {fileID: 1005832617598302, guid: f020af1c8e274406f81756a7d7998660, type: 2}
       propertyPath: m_Name
       value: Fuel (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688892131512282, guid: f020af1c8e274406f81756a7d7998660,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f020af1c8e274406f81756a7d7998660, type: 2}
@@ -470,6 +485,11 @@ Prefab:
       propertyPath: m_Name
       value: Fuel (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114688892131512282, guid: f020af1c8e274406f81756a7d7998660,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f020af1c8e274406f81756a7d7998660, type: 2}
   m_IsPrefabAsset: 0
@@ -562,7 +582,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -265277881
-  m_SortingLayer: 4
+  m_SortingLayer: -1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e94265ccc7cdd4f89b41f87669a04e0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -620,6 +640,7 @@ MonoBehaviour:
   didLowFuel: 0
   didChargeFuel: 0
   fuelVelocity: -1
+  localPlayerOnGasStation: 0
   fuelTankCharges: 18
 --- !u!4 &1156787043
 Transform:
@@ -736,7 +757,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1277737308}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f002831dad13543ca8461ba63e3623d9, type: 3}
   m_Name: 
@@ -1026,6 +1047,11 @@ Prefab:
     - target: {fileID: 1005832617598302, guid: f020af1c8e274406f81756a7d7998660, type: 2}
       propertyPath: m_Name
       value: Fuel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688892131512282, guid: f020af1c8e274406f81756a7d7998660,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f020af1c8e274406f81756a7d7998660, type: 2}

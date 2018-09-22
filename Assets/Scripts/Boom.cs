@@ -11,7 +11,7 @@ public class Boom : MonoBehaviour {
     private IEnumerator explodir()
     {
         // Somente para dar tempo do som da explosão finalizar
-        GetComponent<SpriteRenderer>().enabled = false;
+        //GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
     }

@@ -23,16 +23,15 @@ public class GasStationController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (playerTrigger && !didLowFuel)
+        if (playerTrigger)
         {
-            StartCoroutine(provideFuelToPlayer());
-            FuelController.playerOnGasStation = true;
-            print("Charging...");
-        }
 
-        if (!playerTrigger) {
-            FuelController.playerOnGasStation = false;
-        }
+            if (!didLowFuel)
+            {
+                StartCoroutine(provideFuelToPlayer());
+            }
+            print("Charging...");
+        } 
 
         if (fuelChargesLeft == 0)
         {
@@ -47,6 +46,7 @@ public class GasStationController : MonoBehaviour
             audioSource.Play();
             print("Enter Fuel!!");
             playerTrigger = true;
+            FuelController.playerOnGasStation = true;
         }
     }
 
@@ -57,6 +57,7 @@ public class GasStationController : MonoBehaviour
             audioSource.Stop();
             print("Exit Fuel!!");
             playerTrigger = false;
+            FuelController.playerOnGasStation = false;
         }
     }
 
@@ -76,6 +77,9 @@ public class GasStationController : MonoBehaviour
 
     private void OnDestroy()
     {
-        FuelController.playerOnGasStation = false;
+        if (playerTrigger) {
+            FuelController.playerOnGasStation = false;
+        }
+        playerTrigger = false;
     }
 }
