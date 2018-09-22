@@ -141,6 +141,7 @@ MonoBehaviour:
   weapon: {fileID: 4870604275514634}
   bullet: {fileID: 1709804316274540, guid: ace9445418b944a55987afbc011fc9fd, type: 2}
   explosion: {fileID: 1761403108425320, guid: 4f05f8d692e97497daa69d8abd499b24, type: 2}
+  livesText: {fileID: 0}
 --- !u!212 &212607184125723776
 SpriteRenderer:
   m_ObjectHideFlags: 1

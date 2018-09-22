@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Boom : MonoBehaviour {
 
-	// Use this for initialization
 	void Start () {
-        Destroy(gameObject, 0.3f);
+        StartCoroutine(explodir());
 	}
+
+    private IEnumerator explodir()
+    {
+        // Somente para dar tempo do som da explosão finalizar
+        GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(1.5f);
+        Destroy(gameObject);
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -13,9 +13,12 @@ public class GasStationController : MonoBehaviour
     public int pointsPerKill = 5;
     public GameObject explosion;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -41,6 +44,7 @@ public class GasStationController : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            audioSource.Play();
             print("Enter Fuel!!");
             playerTrigger = true;
         }
@@ -50,6 +54,7 @@ public class GasStationController : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            audioSource.Stop();
             print("Exit Fuel!!");
             playerTrigger = false;
         }

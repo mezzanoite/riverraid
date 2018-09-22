@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7694f6fca94643d0b357b6410b966ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsPerKill: 3
+  pointsPerKill: 7
   explosion: {fileID: 1125666450090616, guid: 187f93c8f14024b19985881c10c8cda9, type: 2}
   distanceStartMoving: 3
   velocity: 2

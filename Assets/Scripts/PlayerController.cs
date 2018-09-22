@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -17,7 +16,6 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-
         float x = Input.GetAxis("Horizontal") * velocity * Time.deltaTime;
         float y = Input.GetAxis("Vertical") * velocity * Time.deltaTime;
         if ((transform.position.y < -3.5 && y < 0) || (transform.position.y > 4.4 && y > 0))
@@ -56,10 +54,9 @@ public class PlayerController : MonoBehaviour {
 
     public void killPlayer() {
         Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
-        Destroy(gameObject);
-        MainController.isPlaying = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        StartCoroutine(MainController.EndGame());  
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

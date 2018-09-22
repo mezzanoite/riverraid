@@ -45,6 +45,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Canvas
+    uniqueID: 4029689415
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -56,7 +59,4 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2250547693
-    locked: 0
-  - name: Canvas
-    uniqueID: 4029689415
     locked: 0

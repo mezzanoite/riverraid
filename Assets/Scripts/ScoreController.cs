@@ -9,13 +9,15 @@ public class ScoreController : MonoBehaviour {
     public Text txtScore;
     public Text HighScore;
 
+    private static readonly string HIGH_SCORE = "highscore";
+
     void Start()
     {
         MainController.score = 0;
 
-        if (!PlayerPrefs.HasKey("score"))
+        if (!PlayerPrefs.HasKey(HIGH_SCORE))
         {
-            PlayerPrefs.SetInt("score", 0);
+            updateHighScore(0);
         }
     }
 
@@ -23,11 +25,16 @@ public class ScoreController : MonoBehaviour {
     {
 
         txtScore.text = MainController.score.ToString();
-        HighScore.text = PlayerPrefs.GetInt("score").ToString();
+        HighScore.text = PlayerPrefs.GetInt(HIGH_SCORE).ToString();
 
-        if (MainController.score > PlayerPrefs.GetInt("score"))
+        if (MainController.score > PlayerPrefs.GetInt(HIGH_SCORE))
         {
-            PlayerPrefs.SetInt("score", MainController.score);
+            updateHighScore(MainController.score);
         }
+    }
+
+    private void updateHighScore(int score)
+    {
+        PlayerPrefs.SetInt(HIGH_SCORE, score);
     }
 }

@@ -53,6 +53,7 @@ public class EnemyController : MonoBehaviour {
 
     public void Die() {
         Instantiate(explosion, transform.position, transform.rotation);
+        MainController.score = MainController.score + pointsPerKill;
         Destroy(gameObject);
     }
 
