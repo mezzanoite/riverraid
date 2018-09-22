@@ -22,8 +22,7 @@ public class FuelController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        print(playerOnGasStation);
-        //if  (MainController.isPlaying) {
+        if  (MainController.isPlaying) {
 
             isFull = (fuelTankCharges > 15);
             isEmpty = (fuelTankCharges == 0);
@@ -45,7 +44,7 @@ public class FuelController : MonoBehaviour {
                     player.GetComponent<PlayerController>().killPlayer();
                 }
             }
-       //}
+       }
     }
 
     private void updateIndicatorX() {
