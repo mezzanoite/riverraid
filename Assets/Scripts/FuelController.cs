@@ -11,12 +11,16 @@ public class FuelController : MonoBehaviour {
     public bool didLowFuel = false;
     public bool didChargeFuel = false;
     public static bool playerOnGasStation = false;
-    public float fuelVelocity = -1.0f;
+    public float fuelVelocity;
     public bool localPlayerOnGasStation = false;
     public int fuelTankCharges = 18;
 
+
+    private float initialFuelVelocity;
+
     private void Start()
     {
+        initialFuelVelocity = fuelVelocity;
         player = GameObject.FindWithTag("Player");
     }
 
@@ -55,7 +59,7 @@ public class FuelController : MonoBehaviour {
         didLowFuel = true;
         yield return new WaitForSeconds(1.0f);
         didLowFuel = false;
-        fuelVelocity = -1.0f;
+        fuelVelocity = initialFuelVelocity;
         fuelTankCharges -= 1;
         updateIndicatorX();
     }

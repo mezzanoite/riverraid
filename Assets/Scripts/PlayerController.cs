@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
         }
 
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1"))
         {
             GameObject p = Instantiate(bullet, weapon.position, weapon.rotation);
             p.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 5.0f);

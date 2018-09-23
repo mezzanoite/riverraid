@@ -12,7 +12,7 @@ public class MainController : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1"))
         {
             StartGame();
         }
